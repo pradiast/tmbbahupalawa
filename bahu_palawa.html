@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Desa Bahu Palawa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS RESET & VARIABEL --- */
+        :root {
+            --primary-color: #2c7a7b;
+            --secondary-color: #f0fff4;
+            --accent-color: #ed8936;
+            --text-dark: #2d3748;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f7fafc;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            width: 100vw;
+            max-width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            left: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/5.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            padding: 0 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            padding: 0 20px;
+        }
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #235c5d;
+        }
+
+        /* --- SEKSI UMUM --- */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        /* --- TENTANG --- */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text, .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image img {
+            width: 100%;
+            height: 458px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .distance-card {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-left: 5px solid var(--accent-color);
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .about-text p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+
+        /* --- GRID CONTAINER --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- STYLE KARTU --- */
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .badge {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* --- KARTU LEBAR --- */
+        .card-wide {
+            grid-column: 1 / -1;
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            min-height: 300px;
+        }
+        .card-wide:hover {
+            transform: translateY(-5px);
+        }
+        .card-wide img {
+            width: 50%;
+            object-fit: cover;
+        }
+        .card-wide .card-content {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        .card-wide .card-content p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+
+        /* --- MAPS & FOOTER --- */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* --- RESPONSIF HP --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                display: none;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .card-wide {
+                flex-direction: column;
+            }
+            .card-wide img,
+            .card-wide .card-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Wisata Desa Bahu Palawa</div>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#wisata">Wisata</a></li>
+                <li><a href="#lokasi">Peta Lokasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Selamat Datang di Wisata Desa Bahu Palawa</h1>
+            <p>Alam yang Asri. Budaya yang Lestari. Sejarah yang Abadi.</p>
+            <a href="#wisata" class="btn">Jelajahi Sekarang</a>
+        </div>
+    </section>
+
+    <section id="tentang">
+        <h2 class="section-title">Tentang Desa Bahu Palawa</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/desa.png">
+            </div>
+            <div class="about-text">
+                <p>
+                    Desa Bahu Palawa yang terletak di wilayah Kecamatan Kahayan Tengah, Kabupaten Pulang Pisau, memiliki wilayah seluas 10.000 hektar. Dengan jumlah penduduk mencapai 535 jiwa, desa ini merupakan wilayah yang sangat potensial karena menyimpan kekayaan Sumber Daya Alam (SDA) yang melimpah.
+                    Dari segi aksesibilitas, Desa Bahu Palawa berjarak sekitar 16 km dari ibu kota kecamatan dan 134 km dari ibu kota Kabupaten Pulang Pisau yang dapat ditempuh dalam waktu kurang lebih 3 jam perjalanan. Infrastruktur di wilayah ini terus mengalami peningkatan, di mana akses jalan menuju ibu kota kecamatan telah diperlebar, dan jalan penghubung antara Desa Bahu Palawa dengan desa-desa sekitarnya kini sudah beraspal mulus untuk memudahkan mobilitas warga.                </p>
+                    <div class="distance-card">
+                    <h4>📍 Aksesibilitas</h4>
+                    <p><strong>Jarak dari Kota Palangka Raya:</strong> 34 Kilometer</p>
+                    <p><strong>Waktu Tempuh:</strong> ± 46 Menit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wisata" style="background-color: #fff;">
+        <h2 class="section-title">Wisata Sei Tamba</h2>
+        
+        <div class="grid-container">
+            
+            <div class="card">
+                <img src="images/dermaga.jpg" alt="Dermaga">
+                <div class="card-content">
+                    <div class="card-title">Dermaga <span class="badge">Segera Dibuka </span></div>
+                    <p>Jadikan dermaga ini titik awal petualangan Anda menyusuri keindahan sungai yang asri. Tak hanya sebagai tempat bersandar perahu, area ini adalah spot terbaik untuk menyaksikan matahari terbenam. Abadikan momen berlatar kilauan air sungai dan langit jingga yang memukau, menciptakan kenangan visual yang tak terlupakan.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/pemancingan.jpg" alt="Pemancingan">
+                <div class="card-content">
+                    <div class="card-title">Pemancingan</div>
+                    <p>Bagi Anda yang merindukan kedamaian, area pemancingan kami adalah pelarian yang sempurna. Nikmati perpaduan unik antara kesabaran menunggu umpan dan adrenalin saat strike ikan segar. Dikelilingi suasana alam yang hening, aktivitas memancing di sini bukan sekadar hobi, melainkan terapi alami untuk melepaskan penat dari hiruk-pikuk kota</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/snackcorner.jpg" alt="Pojok Jajanan">
+                <div class="card-content">
+                    <div class="card-title">Pojok Jajanan</div>
+                    <p>Sebuah area sentra jajanan yang menawarkan suasana hangat dan akrab. Menjadi titik kumpul favorit bagi pengunjung untuk menikmati hidangan ringan, dikelilingi oleh pemandangan sungai yang asri dan menyejukkan mata</p>
+                </div>
+            </div>
+
+             <div class="card">
+                <img src="images/pemandiantamba.jpg" alt="Pemandian">
+                <div class="card-content">
+                    <div class="card-title">Pemandian</div>
+                    <p>Lebih dari sekadar pemandian alam, sungai ini menyimpan kearifan lokal yang mendalam. Diambil dari bahasa Dayak Ngaju, 'Tamba' atau 'Tatamba' memiliki arti 'Obat'. Sesuai namanya, masyarakat setempat meyakini bahwa aliran sungai ini memiliki khasiat alami untuk menyembuhkan berbagai penyakit. Rasakan sensasi berendam yang tidak hanya menyegarkan tubuh, tetapi juga membasuh jiwa dengan keajaiban alam yang dipercaya membawa kesembuhan.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="grid-column: 1 / -1; margin-bottom: 20px;">
+                Rumah Bersejarah
+            </h2>
+            <div class="card-wide">
+                <img src="images/rumah1.jpg" alt="Pusat Budaya">
+                <div class="card-content">
+                    <div class="card-title" style="font-size: 1.8rem;">Rumah Djaga Bahen</div>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    Huma Hai atau rumah besar Djaga Bahen yang terletak di Desa Bahu Palawa, Kecamatan Kahayan Tengah, Kabupaten Pulang Pisau, Kalimantan Tengah, didirikan pada 5 Maret tahun 1933 oleh Djaga Bahen. Rumah ini menjadi bukti saksi sejarah terbentuknya cikal bakal otonom Provinsi Kalimantan Tengah, di mana Kongres Serikat Kaharingan Dayak Indonesia (SKDI) ke-III diselenggarakan pada bulan Juli 1953. Kongres bersejarah ini menghasilkan Mosi No: 1/Kong/1953 yang menjadi tuntutan resmi pertama untuk pembentukan provinsi, dengan Bapak Aji Bahen, Kepala Kampung Bahu Palawa, bertindak sebagai ketua panitia penyelenggara. Ketika perjuangan SKDI kurang mendapat tanggapan, gerakan fisik Gerakan Mandau Talawang Pancasila (GMTPS) yang dipimpin oleh Ch. Simbar dibentuk pada tahun 1956. Desa Bahu Palawa kemudian kembali berperan penting sebagai lokasi markas/posko GMTPS Sektor B di bawah pimpinan Jamin Laman, yang bertugas mengamankan masyarakat dan mempersiapkan pasukan cadangan atas perintah Sahari Andung. Meskipun Huma Hai telah mengalami empat kali perubahan pada pola tata ruangnya sejak tahun 1938 hingga 1995, rumah ini tetap mempertahankan nilai-nilai kearifan lokal seperti aturan petuah leluhur mengenai perletakan ruang, yang diwariskan secara turun temurun oleh keturunan Djaga Bahen. Dengan demikian, Huma Hai Djaga Bahen tidak hanya menjadi tempat lahirnya tuntutan politik SKDI, tetapi juga menjadi simpul persiapan fisik GMTPS, menjadikannya monumen budaya yang sarat nilai sejarah perjuangan Kalimantan Tengah.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lokasi">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7974.938176128845!2d113.955446!3d-1.96628!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dfca3218c964183%3A0xcee3227f5fe56358!2sSungai%20Tamba%20Desa%20Bahu%20Palawa!5e0!3m2!1sid!2sid!4v1764512151852!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+        </section>
+
+    <footer>
+        <p>© 2024 Wisata Desa Bahu Palawa.</p>
+    </footer>
+
+</body>
+</html>
